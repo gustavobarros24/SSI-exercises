@@ -1,0 +1,16 @@
+QUESTÃO: Q1
+Como pode verificar que as chaves fornecidas nos ficheiros mencionados (por exemplo, em VALUT_SERVER.p12) constituem de facto um par de chaves RSA válido?
+
+R: Primeiro vou extrair o certificado e a chave privado do ficheiro .p12, após isso  extraio a chava publica apartir da chave privada, depois extraio a chave pública apartir do certificado e depois comparo as duas chaves, se forem iguais então a chave pública do certificado é a chave correspondente com a chave privada.
+
+QUESTÃO: Q2
+Visualize o conteúdo dos certificados fornecidos, e refira quais dos campos lhe parecem que devam ser objecto de atenção no procedimento de verificação.
+
+R: Os campos que devem ser verificados com mais atenção seriam:
+    - Issuer: Quem emitiu o certificado.
+    - Validity: Indica a validade do verificado.
+    - Subject: Indica o titular do certificado.
+    - Key Usage e Extended Key Usage: Para que é usada a key.
+    - Public Key Info: Confirma qual é o tipo de chave e que algoritmo usa.
+    - Signature Algorithm: Indica que o certificado foi assinado pela chave privada da CA.
+Validar corretamente estes campos é necessário para garantir a confiança, autenticidade e segurança dos certificados digitais. 
